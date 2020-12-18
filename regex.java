@@ -127,17 +127,6 @@ public class regex{
         return trans;
     }
 
-    public void simplifiyAcceptEquation(regex temp) {
-        //get the accept equation
-        ArrayList<String> equationHolder = getAcceptEquation(temp);
-        //System.out.println(equationHolder);
-        for(int i = 3; i < equationHolder.size(); i++) {
-            System.out.println(equationHolder.get(i));
-            
-        }
-
-    }
-
     public boolean isAcceptedString(String string, regex grammar) {
         String description = grammar.regexGrammar[0][0];
         char symbolHolder = '-';
@@ -185,18 +174,16 @@ public class regex{
     public static void main(String[] args) {
         DFA holder = new DFA();
         DFA tester = holder.dfaTester();
-        //tester.printDFA(tester);
 
         regex rTester = new regex(tester);
         rTester.regexPrinter(rTester);
 
-        //System.out.println(rTester.singleToString(rTester.regexGrammar[0]));
         rTester.allToString(rTester);
         System.out.println(rTester.getAcceptEquation(rTester));
         System.out.println("***********************************************\n");
 
         System.out.println(rTester.getTransistions(rTester, "S"));
-        //rTester.simplifiyAcceptEquation(rTester);
+       
         System.out.println(rTester.isAcceptedString("010101", rTester));
     }
 }
